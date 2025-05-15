@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="none"/>
+  <text x="100" y="110" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#6366F1" text-anchor="middle">SkyScape</text>
+  <path d="M60,70 C60,60 100,40 140,70" stroke="#6366F1" stroke-width="5" fill="none"/>
+  <path d="M70,80 C70,70 100,55 130,80" stroke="#6366F1" stroke-width="3" fill="none"/>
+</svg> 

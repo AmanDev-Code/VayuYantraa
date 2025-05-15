@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <rect width="200" height="200" fill="none"/>
+  <text x="100" y="110" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#EC4899" text-anchor="middle">AeroVision</text>
+  <circle cx="100" cy="70" r="20" fill="none" stroke="#EC4899" stroke-width="3"/>
+  <path d="M90,70 L110,70" stroke="#EC4899" stroke-width="3"/>
+  <path d="M85,85 L115,55" stroke="#EC4899" stroke-width="3"/>
+  <path d="M85,55 L115,85" stroke="#EC4899" stroke-width="3"/>
+</svg> 

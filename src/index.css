@@ -1,0 +1,432 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 47% 13%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 60% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 223 47% 20%;
+    --muted-foreground: 215 20% 75%;
+
+    --accent: 183 70% 45%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 223 47% 20%;
+    --input: 223 47% 20%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 260 60% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 183 70% 45%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border selection:bg-primary/20 selection:text-foreground;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+  }
+  
+  .backdrop-blur-card {
+    @apply backdrop-blur-md bg-black/30 border border-white/10;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-md bg-white/5 border border-white/10 shadow-lg;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+  
+  .animate-pulse-subtle {
+    animation: pulse-subtle 3s infinite;
+  }
+}
+
+@keyframes blob {
+  0% {
+    transform: scale(1) translate(0px, 0px);
+  }
+  33% {
+    transform: scale(1.1) translate(20px, -20px);
+  }
+  66% {
+    transform: scale(0.9) translate(-20px, 20px);
+  }
+  100% {
+    transform: scale(1) translate(0px, 0px);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 0.9;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes drone-float {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-51%, -48%) rotate(1deg);
+  }
+  50% {
+    transform: translate(-49%, -52%) rotate(-1deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(1deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0px rgba(77, 171, 247, 0.5);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 15px rgba(77, 171, 247, 0.8);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  10%, 90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+/* Drone Scene Styling */
+.drone-scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.drone {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 50px;
+  transform-style: preserve-3d;
+  animation: drone-float 5s ease-in-out infinite;
+}
+
+.drone-frame {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: hsl(var(--secondary));
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.3);
+  box-shadow: 0 0 20px hsla(var(--secondary), 0.6);
+  z-index: 2;
+}
+
+.drone-camera {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: hsl(var(--accent));
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px hsla(var(--accent), 0.6);
+  z-index: 3;
+}
+
+.propeller {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: hsla(var(--muted), 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.propeller-1 {
+  top: -30px;
+  left: -30px;
+}
+
+.propeller-2 {
+  top: -30px;
+  right: -30px;
+}
+
+.propeller-3 {
+  bottom: -30px;
+  left: -30px;
+}
+
+.propeller-4 {
+  bottom: -30px;
+  right: -30px;
+}
+
+.propeller-blade {
+  position: absolute;
+  width: 50px;
+  height: 4px;
+  background: hsla(var(--foreground), 0.6);
+  border-radius: 2px;
+  animation: rotate 0.2s linear infinite;
+}
+
+.propeller-blade:nth-child(2) {
+  transform: rotate(90deg);
+}
+
+.drone-lights {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: hsl(var(--primary));
+  border-radius: 50%;
+  animation: pulse-glow 2s infinite;
+}
+
+.drone-lights.left {
+  bottom: 0;
+  left: 0;
+}
+
+.drone-lights.right {
+  bottom: 0;
+  right: 0;
+}
+
+.drone-shadow {
+  position: absolute;
+  width: 120px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%) rotateX(60deg);
+  filter: blur(10px);
+}
+
+.scan-line {
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+  left: 10%;
+  top: 50%;
+  animation: scan 5s linear infinite;
+}
+
+.terrain {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid hsla(var(--primary), 0.3);
+  background: linear-gradient(to bottom, hsla(var(--primary), 0.1), transparent);
+}
+
+/* Drone animation for feature section */
+.drone-animation {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.drone-body {
+  position: absolute;
+  width: 80px;
+  height: 20px;
+  background: hsl(var(--primary));
+  left: 35px;
+  top: 65px;
+  border-radius: 10px;
+}
+
+.drone-propeller {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid hsla(var(--foreground), 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: rotate 0.3s linear infinite;
+}
+
+.drone-propeller::before,
+.drone-propeller::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: hsl(var(--foreground));
+  border-radius: 3px;
+}
+
+.drone-propeller::after {
+  transform: rotate(90deg);
+}
+
+.drone-propeller.left-front {
+  left: 15px;
+  top: 50px;
+}
+
+.drone-propeller.right-front {
+  right: 15px;
+  top: 50px;
+}
+
+.drone-propeller.left-back {
+  left: 15px;
+  bottom: 50px;
+}
+
+.drone-propeller.right-back {
+  right: 15px;
+  bottom: 50px;
+}
+
+.drone-animation .drone-camera {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: hsl(var(--accent));
+  border-radius: 50%;
+  left: 68px;
+  top: 58px;
+  transform: none;
+}
+
+.drone-animation .drone-shadow {
+  width: 90px;
+  height: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  bottom: 20px;
+  left: 30px;
+  transform: none;
+}
+
+/* Animated blob */
+@layer utilities {
+  .animate-blob {
+    animation: blob 7s infinite;
+  }
+}

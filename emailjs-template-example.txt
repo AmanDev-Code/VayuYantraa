@@ -1,0 +1,18 @@
+Subject: New Contact Form Submission from {{from_name}}
+
+Hello,
+
+You have received a new message from your website contact form:
+
+Name: {{from_name}}
+Email: {{from_email}}
+Company: {{from_company}}
+Phone: {{from_phone}}
+
+Message:
+{{message}}
+
+This message was sent on {{current_date}} via your website contact form.
+
+--
+Vayuyantra Automated Email 
