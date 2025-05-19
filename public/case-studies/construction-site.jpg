@@ -1,0 +1,10 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#18273F"/>
+  <rect x="100" y="300" width="600" height="80" fill="#3B4D6B"/>
+  <rect x="200" y="200" width="400" height="100" fill="#5E7290"/>
+  <rect x="250" y="100" width="300" height="100" fill="#3B4D6B"/>
+  <rect x="300" y="50" width="200" height="50" fill="#5E7290"/>
+  <path d="M300 50 L350 20 L500 20 L550 50" fill="#FFCC00" stroke="#FFCC00" stroke-width="2"/>
+  <rect x="380" y="50" width="40" height="50" fill="#18273F"/>
+  <text x="400" y="360" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="white">Construction Site</text>
+</svg> 

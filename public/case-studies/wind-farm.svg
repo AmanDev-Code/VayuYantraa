@@ -1,0 +1,27 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#18273F"/>
+  <rect x="100" y="300" width="600" height="80" fill="#336633"/>
+  
+  <!-- Wind Turbine 1 -->
+  <rect x="200" y="150" width="10" height="150" fill="#CCCCCC"/>
+  <circle cx="205" cy="150" r="3" fill="#FFFFFF"/>
+  <path d="M205 150 L155 125 L165 115 Z" fill="#DDDDDD"/>
+  <path d="M205 150 L255 125 L265 115 Z" fill="#DDDDDD"/>
+  <path d="M205 150 L205 100 L215 90 Z" fill="#DDDDDD"/>
+  
+  <!-- Wind Turbine 2 -->
+  <rect x="400" y="120" width="12" height="180" fill="#CCCCCC"/>
+  <circle cx="406" cy="120" r="4" fill="#FFFFFF"/>
+  <path d="M406 120 L346 90 L356 80 Z" fill="#DDDDDD"/>
+  <path d="M406 120 L466 90 L476 80 Z" fill="#DDDDDD"/>
+  <path d="M406 120 L406 60 L416 50 Z" fill="#DDDDDD"/>
+  
+  <!-- Wind Turbine 3 -->
+  <rect x="600" y="180" width="8" height="120" fill="#CCCCCC"/>
+  <circle cx="604" cy="180" r="2" fill="#FFFFFF"/>
+  <path d="M604 180 L564 160 L574 150 Z" fill="#DDDDDD"/>
+  <path d="M604 180 L644 160 L654 150 Z" fill="#DDDDDD"/>
+  <path d="M604 180 L604 140 L614 130 Z" fill="#DDDDDD"/>
+  
+  <text x="400" y="360" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="white">Wind Farm</text>
+</svg> 

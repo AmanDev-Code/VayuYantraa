@@ -1,0 +1,69 @@
+<svg width="800" height="400" viewBox="0 0 800 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#18273F"/>
+  
+  <!-- Background Grid -->
+  <g opacity="0.3">
+    <line x1="0" y1="100" x2="800" y2="100" stroke="#555555" stroke-width="1"/>
+    <line x1="0" y1="200" x2="800" y2="200" stroke="#555555" stroke-width="1"/>
+    <line x1="0" y1="300" x2="800" y2="300" stroke="#555555" stroke-width="1"/>
+    
+    <line x1="200" y1="0" x2="200" y2="400" stroke="#555555" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="400" stroke="#555555" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="400" stroke="#555555" stroke-width="1"/>
+  </g>
+  
+  <!-- Multi-Spectral Imagery -->
+  <g>
+    <!-- Base Image (RGB) -->
+    <rect x="250" y="100" width="300" height="200" rx="5" fill="#3B4D6B"/>
+    
+    <!-- Thermal Layer -->
+    <rect x="265" y="115" width="270" height="170" rx="5" fill="#480000" opacity="0.5"/>
+    <circle cx="340" cy="150" r="25" fill="#FF0000" opacity="0.4"/>
+    <circle cx="390" cy="200" r="40" fill="#FF3300" opacity="0.4"/>
+    <circle cx="450" cy="180" r="35" fill="#FF6600" opacity="0.4"/>
+    
+    <!-- NIR Layer -->
+    <g opacity="0.3">
+      <rect x="265" y="115" width="270" height="170" rx="5" fill="#004800" opacity="0.5"/>
+      <circle cx="310" cy="210" r="30" fill="#00FF00" opacity="0.4"/>
+      <circle cx="410" cy="190" r="25" fill="#00FF44" opacity="0.4"/>
+      <circle cx="470" cy="220" r="20" fill="#00FF88" opacity="0.4"/>
+    </g>
+    
+    <!-- Multispectral Imagery -->
+    <rect x="250" y="100" width="300" height="40" rx="5" fill="#222222"/>
+    <text x="400" y="127" text-anchor="middle" font-family="Arial" font-size="18" fill="white">Multi-Spectral Imagery</text>
+  </g>
+  
+  <!-- Camera Lens Elements -->
+  <circle cx="150" cy="200" r="60" stroke="#AAAAAA" stroke-width="3" fill="none"/>
+  <circle cx="150" cy="200" r="50" stroke="#AAAAAA" stroke-width="2" fill="none"/>
+  <circle cx="150" cy="200" r="40" stroke="#AAAAAA" stroke-width="2" fill="none"/>
+  <circle cx="150" cy="200" r="30" stroke="#AAAAAA" stroke-width="1" fill="none"/>
+  <circle cx="150" cy="200" r="20" stroke="#AAAAAA" stroke-width="1" fill="none"/>
+  <circle cx="150" cy="200" r="10" fill="#CCCCCC"/>
+  
+  <!-- Spectral Bands Legend -->
+  <rect x="600" y="120" width="150" height="160" rx="5" fill="#222222" opacity="0.7"/>
+  <text x="675" y="145" text-anchor="middle" font-family="Arial" font-size="14" fill="white">Spectral Bands</text>
+  
+  <rect x="620" y="160" width="15" height="15" fill="#FF0000"/>
+  <text x="685" y="172" font-family="Arial" font-size="12" fill="white">Thermal IR</text>
+  
+  <rect x="620" y="185" width="15" height="15" fill="#00FF00"/>
+  <text x="688" y="197" font-family="Arial" font-size="12" fill="white">Near IR (NIR)</text>
+  
+  <rect x="620" y="210" width="15" height="15" fill="#0000FF"/>
+  <text x="675" y="222" font-family="Arial" font-size="12" fill="white">RGB</text>
+  
+  <rect x="620" y="235" width="15" height="15" fill="#FFCC00"/>
+  <text x="690" y="247" font-family="Arial" font-size="12" fill="white">Red Edge</text>
+  
+  <!-- Drone Silhouette -->
+  <path d="M400 70 L420 90 L400 110 L380 90 Z" fill="#FFFFFF" opacity="0.5"/>
+  <rect x="395" y="50" width="10" height="20" fill="#FFFFFF" opacity="0.5"/>
+  
+  <!-- Title -->
+  <text x="400" y="350" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="white">Multi-Spectral Imaging Systems</text>
+</svg> 

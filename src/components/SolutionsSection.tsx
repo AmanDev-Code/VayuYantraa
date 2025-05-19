@@ -1,8 +1,8 @@
-
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from './ui/tabs';
 import { Truck, Leaf, Construction, Clipboard } from 'lucide-react';
 import { Button } from './ui/button';
+import { cn } from '@/lib/utils';
 
 interface SolutionTabProps {
   icon: React.ReactNode;
@@ -25,7 +25,7 @@ function SolutionTab({ icon, title, description, features, image }: SolutionTabP
         <ul className="space-y-2 mb-8">
           {features.map((feature, index) => (
             <li key={index} className="flex items-start">
-              <svg className="h-5 w-5 text-primary mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-5 w-5 text-primary mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
               <span>{feature}</span>
@@ -50,6 +50,80 @@ function SolutionTab({ icon, title, description, features, image }: SolutionTabP
 
 export function SolutionsSection() {
   const [activeTab, setActiveTab] = useState("delivery");
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if we're on mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  const tabInfo = [
+    {
+      id: "delivery",
+      icon: <Truck className="h-5 w-5" />,
+      title: "Rapid Delivery",
+      shortTitle: "Delivery",
+      description: "Revolutionize your logistics with autonomous drone delivery systems that reduce costs and delivery times.",
+      features: [
+        "Secure cargo pods with temperature control",
+        "Intelligent route planning and obstacle avoidance",
+        "Up to 15kg payload capacity",
+        "Real-time tracking and delivery confirmation"
+      ],
+      image: "https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=800&h=500"
+    },
+    {
+      id: "agriculture",
+      icon: <Leaf className="h-5 w-5" />,
+      title: "Precision Agriculture",
+      shortTitle: "Agriculture",
+      description: "Optimize farm operations with drone-based monitoring, planting, and crop management solutions.",
+      features: [
+        "High-precision AI-controlled spraying systems",
+        "Multispectral imaging for crop health analysis",
+        "Automated planting and seeding modules",
+        "Integration with farm management software"
+      ],
+      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&h=500"
+    },
+    {
+      id: "inspection",
+      icon: <Construction className="h-5 w-5" />,
+      title: "High-Rise Inspection & Cleaning",
+      shortTitle: "Inspection",
+      description: "Safely inspect and maintain tall structures without scaffolding or human risk.",
+      features: [
+        "Advanced LiDAR and thermal imaging systems",
+        "AI-powered defect detection technology",
+        "Specialized façade cleaning attachments",
+        "3D modeling and structural analysis"
+      ],
+      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=800&h=500"
+    },
+    {
+      id: "research",
+      icon: <Clipboard className="h-5 w-5" />,
+      title: "Custom R&D Partnerships",
+      shortTitle: "R&D",
+      description: "Partner with our engineering team to develop specialized drone solutions for your unique challenges.",
+      features: [
+        "Collaborative design and development process",
+        "Custom payload and sensor integration",
+        "Specialized flight control algorithms",
+        "Full IP ownership options available"
+      ],
+      image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=800&h=500"
+    }
+  ];
 
   return (
     <section id="solutions" className="py-20 relative overflow-hidden">
@@ -61,88 +135,75 @@ export function SolutionsSection() {
           </p>
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full md:w-fit mx-auto grid-cols-2 md:grid-cols-4 mb-12">
-            <TabsTrigger value="delivery" className="flex items-center gap-2">
-              <Truck className="h-4 w-4" />
-              <span className="hidden md:inline">Rapid Delivery</span>
-            </TabsTrigger>
-            <TabsTrigger value="agriculture" className="flex items-center gap-2">
-              <Leaf className="h-4 w-4" />
-              <span className="hidden md:inline">Precision Agriculture</span>
-            </TabsTrigger>
-            <TabsTrigger value="inspection" className="flex items-center gap-2">
-              <Construction className="h-4 w-4" />
-              <span className="hidden md:inline">High-Rise Inspection</span>
-            </TabsTrigger>
-            <TabsTrigger value="research" className="flex items-center gap-2">
-              <Clipboard className="h-4 w-4" />
-              <span className="hidden md:inline">Custom R&D</span>
-            </TabsTrigger>
+        {/* Mobile tab buttons - grid layout instead of horizontal scroll */}
+        <div className="md:hidden mb-8">
+          <div className="grid grid-cols-2 gap-2">
+            {tabInfo.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={cn(
+                  "flex items-center justify-center space-x-2 rounded-lg py-3 text-sm font-medium transition-all",
+                  activeTab === tab.id 
+                    ? "bg-primary text-primary-foreground" 
+                    : "bg-muted hover:bg-muted/80 text-foreground/70"
+                )}
+              >
+                <span className="flex-shrink-0">{tab.icon}</span>
+                <span>{tab.shortTitle}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop tabs */}
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full hidden md:block">
+          <TabsList className="grid w-full md:w-fit mx-auto grid-cols-4 mb-12">
+            {tabInfo.map((tab) => (
+              <TabsTrigger key={tab.id} value={tab.id} className="flex items-center gap-2">
+                {tab.icon}
+                <span>{tab.title}</span>
+              </TabsTrigger>
+            ))}
           </TabsList>
           
           <div className="glass-card p-6 md:p-8">
-            <TabsContent value="delivery" className="mt-0">
-              <SolutionTab 
-                icon={<Truck className="h-5 w-5" />}
-                title="Rapid Delivery"
-                description="Revolutionize your logistics with autonomous drone delivery systems that reduce costs and delivery times."
-                features={[
-                  "Secure cargo pods with temperature control",
-                  "Intelligent route planning and obstacle avoidance",
-                  "Up to 15kg payload capacity",
-                  "Real-time tracking and delivery confirmation"
-                ]}
-                image="https://images.unsplash.com/photo-1487887235947-a955ef187fcc?auto=format&fit=crop&w=800&h=500"
-              />
-            </TabsContent>
-            
-            <TabsContent value="agriculture" className="mt-0">
-              <SolutionTab 
-                icon={<Leaf className="h-5 w-5" />}
-                title="Precision Agriculture"
-                description="Optimize farm operations with drone-based monitoring, planting, and crop management solutions."
-                features={[
-                  "High-precision AI-controlled spraying systems",
-                  "Multispectral imaging for crop health analysis",
-                  "Automated planting and seeding modules",
-                  "Integration with farm management software"
-                ]}
-                image="https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=800&h=500"
-              />
-            </TabsContent>
-            
-            <TabsContent value="inspection" className="mt-0">
-              <SolutionTab 
-                icon={<Construction className="h-5 w-5" />}
-                title="High-Rise Inspection & Cleaning"
-                description="Safely inspect and maintain tall structures without scaffolding or human risk."
-                features={[
-                  "Advanced LiDAR and thermal imaging systems",
-                  "AI-powered defect detection technology",
-                  "Specialized façade cleaning attachments",
-                  "3D modeling and structural analysis"
-                ]}
-                image="https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=800&h=500"
-              />
-            </TabsContent>
-            
-            <TabsContent value="research" className="mt-0">
-              <SolutionTab 
-                icon={<Clipboard className="h-5 w-5" />}
-                title="Custom R&D Partnerships"
-                description="Partner with our engineering team to develop specialized drone solutions for your unique challenges."
-                features={[
-                  "Collaborative design and development process",
-                  "Custom payload and sensor integration",
-                  "Specialized flight control algorithms",
-                  "Full IP ownership options available"
-                ]}
-                image="https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=800&h=500"
-              />
-            </TabsContent>
+            {tabInfo.map((tab) => (
+              <TabsContent key={tab.id} value={tab.id} className="mt-0">
+                <SolutionTab 
+                  icon={tab.icon}
+                  title={tab.title}
+                  description={tab.description}
+                  features={tab.features}
+                  image={tab.image}
+                />
+              </TabsContent>
+            ))}
           </div>
         </Tabs>
+
+        {/* Mobile content */}
+        <div className="md:hidden">
+          <div className="glass-card p-6">
+            {tabInfo.map((tab) => (
+              <div 
+                key={tab.id} 
+                className={cn(
+                  "transition-opacity duration-300",
+                  activeTab === tab.id ? "block" : "hidden"
+                )}
+              >
+                <SolutionTab 
+                  icon={tab.icon}
+                  title={tab.title}
+                  description={tab.description}
+                  features={tab.features}
+                  image={tab.image}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

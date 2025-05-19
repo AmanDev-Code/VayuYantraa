@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog';
@@ -18,7 +17,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
+    <section className="hero-section relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
       {/* Animated background elements */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Grid lines */}

@@ -1,5 +1,5 @@
-
 import { CheckIcon } from "lucide-react";
+import TimelineDemo from "./ui/timeline-demo";
 
 const steps = [
   {
@@ -33,9 +33,9 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section id="process" className="py-20 bg-muted/30">
+    <section id="process" className="py-20 bg-muted/30 dark:bg-muted/10">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Our streamlined process ensures a smooth transition to autonomous drone operations
@@ -43,47 +43,23 @@ export function ProcessSection() {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          {/* Timeline for desktop */}
-          <div className="hidden md:block relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary/60 via-secondary/60 to-accent/60"></div>
+        {/* Modern Timeline Component */}
+        <TimelineDemo />
 
-            {steps.map((step, index) => (
-              <div key={index} className={`flex items-center mb-20 last:mb-0 ${index % 2 === 0 ? 'justify-start' : 'flex-row-reverse justify-start'}`}>
-                <div className={`w-1/2 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12 text-left'}`}>
-                  <div className={`glass-card p-6 ${index % 2 === 0 ? 'ml-auto' : 'mr-auto'}`}>
-                    <div className="mb-3">{step.icon}</div>
-                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
-                  </div>
-                </div>
-                
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full border-4 border-background bg-primary/90 flex items-center justify-center z-10">
-                  <CheckIcon className="h-5 w-5 text-white" />
-                </div>
-                
-                <div className="w-1/2"></div>
-              </div>
-            ))}
-          </div>
+        {/* Hidden previous timeline - keeping for reference */}
+        <div className="hidden">
+          <div className="max-w-5xl mx-auto">
+            {/* Timeline for desktop */}
+            <div className="hidden md:block relative">
+              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-primary/60 via-secondary/60 to-accent/60"></div>
+              {/* Hidden step items */}
+            </div>
 
-          {/* Vertical timeline for mobile */}
-          <div className="md:hidden relative">
-            <div className="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-primary/60 via-secondary/60 to-accent/60"></div>
-
-            {steps.map((step, index) => (
-              <div key={index} className="ml-12 mb-10 last:mb-0 relative">
-                <div className="absolute left-[-2.5rem] w-8 h-8 rounded-full border-4 border-background bg-primary/90 flex items-center justify-center z-10">
-                  <CheckIcon className="h-4 w-4 text-white" />
-                </div>
-
-                <div className="glass-card p-6">
-                  <div className="mb-3">{step.icon}</div>
-                  <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
-                </div>
-              </div>
-            ))}
+            {/* Vertical timeline for mobile */}
+            <div className="md:hidden relative">
+              <div className="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-primary/60 via-secondary/60 to-accent/60"></div>
+              {/* Hidden step items */}
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,6 @@
+<svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="500" height="500" fill="#18273F"/>
+  <circle cx="250" cy="180" r="100" fill="#3B4D6B"/>
+  <rect x="150" y="300" width="200" height="150" rx="10" fill="#3B4D6B"/>
+  <text x="250" y="180" text-anchor="middle" font-family="Arial" font-size="80" font-weight="bold" fill="white">RP</text>
+</svg> 

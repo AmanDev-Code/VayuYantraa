@@ -40,3 +40,311 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Blog Content Styling */
+.prose {
+  max-width: 65ch;
+  color: #e5e7eb;
+  font-size: 1.05rem;
+}
+
+/* Headings */
+.prose h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #1e2a3b;
+}
+
+.prose h3 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Paragraphs */
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+  line-height: 1.8;
+  color: #e5e7eb;
+}
+
+/* Lists */
+.prose ul {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+  list-style-type: none;
+  padding-left: 1em;
+}
+
+.prose li {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+  line-height: 1.5;
+  color: #e5e7eb;
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.prose li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: hsl(var(--primary));
+}
+
+/* Highlight important text */
+.prose strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Tighter paragraph spacing after lists */
+.prose ul + p,
+.prose ol + p {
+  margin-top: 1.5em;
+}
+
+/* Tighter spacing between list items */
+.prose li + li {
+  margin-top: 0.2em;
+}
+
+/* Tighter spacing between headings and content */
+.prose h2 + p,
+.prose h3 + p,
+.prose h4 + p {
+  margin-top: 0.6em;
+}
+
+/* Add more space between paragraphs */
+.prose p + p {
+  margin-top: 1.5em;
+}
+
+/* Section styling */
+.section-heading {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.section-heading::before {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 1.5rem;
+  background-color: hsl(var(--primary));
+  margin-right: 0.75rem;
+}
+
+.dark .prose {
+  color: hsl(var(--foreground));
+}
+
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4 {
+  color: hsl(var(--foreground));
+}
+
+.dark .prose code {
+  background-color: hsl(var(--muted) / 0.7);
+}
+
+.dark .prose pre {
+  background-color: hsl(var(--muted) / 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* TOC Styling */
+.toc-link {
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+  padding-left: 8px;
+  color: #fff;
+}
+
+.toc-link:hover {
+  border-left-color: hsl(var(--primary));
+  padding-left: 12px;
+  color: hsl(var(--primary));
+}
+
+/* Fixed TOC on larger screens */
+@media (min-width: 1024px) {
+  .toc-container {
+    position: sticky;
+    top: 100px;
+  }
+}
+
+/* Anchor Offset for Fixed Header */
+[id] {
+  scroll-margin-top: 100px;
+}
+
+.prose a {
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.prose a:hover {
+  color: hsl(var(--primary) / 0.8);
+}
+
+.prose blockquote {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  padding-left: 1em;
+  border-left: 0.25em solid hsl(var(--primary));
+  font-style: italic;
+}
+
+.prose code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.875em;
+  font-weight: 600;
+  background-color: hsl(var(--muted) / 0.5);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25em;
+}
+
+.prose pre {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+  overflow-x: auto;
+  border-radius: 0.375em;
+  background-color: hsl(var(--muted) / 0.5);
+  padding: 1em;
+  color: hsl(var(--foreground));
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  font-weight: 400;
+}
+
+.prose img {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  border-radius: 0.375em;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.prose figure {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.prose figure > * {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.prose figcaption {
+  margin-top: 0.5em;
+  font-size: 0.875em;
+  color: hsl(var(--muted-foreground));
+  text-align: center;
+}
+
+/* Blog Post Dark Theme */
+.blog-post-dark {
+  --bg-primary: #0f1623;
+  --bg-secondary: #121827;
+  --bg-card: #1e2a3b;
+  --text-primary: #ffffff;
+  --text-secondary: #e5e7eb;
+  --text-muted: #9ca3af;
+  --border-color: #1e293b;
+}
+
+/* Blog-specific dark theme styling */
+.blog-post-dark .prose h2 {
+  color: var(--text-primary);
+  border-bottom-color: var(--border-color);
+  margin-top: 2.5em;
+  margin-bottom: 1.2em;
+  padding-bottom: 0.75em;
+}
+
+.blog-post-dark .prose h3 {
+  color: var(--text-primary);
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.blog-post-dark .prose p {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+/* Ensure line breaks are preserved */
+.blog-post-dark .prose p br {
+  display: block;
+  content: "";
+  margin-top: 1em;
+}
+
+/* Better padding for bullet points */
+.blog-post-dark .prose li {
+  margin-bottom: 0.75em;
+  padding-left: 1.75em;
+}
+
+.blog-post-dark .toc-link {
+  color: var(--text-secondary);
+}
+
+.blog-post-dark .toc-link:hover {
+  color: hsl(var(--primary));
+}
+
+/* Enhanced TOC for dark mode */
+.blog-post-dark .toc-container {
+  background-color: rgba(18, 24, 39, 0.7);
+  border-radius: 0.5rem;
+  border-left: 4px solid hsl(var(--primary));
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.blog-post-dark .toc-container h4 {
+  color: var(--text-primary);
+  margin-bottom: 1.25em;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+.blog-post-dark .toc-link {
+  padding: 0.5em 0.75em;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 0.5em;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  border-radius: 0 0.25rem 0.25rem 0;
+}
+
+.blog-post-dark .toc-link:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-left-color: hsl(var(--primary));
+  color: hsl(var(--primary));
+  padding-left: 1em;
+}
